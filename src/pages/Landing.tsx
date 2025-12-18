@@ -97,17 +97,17 @@ const Landing = () => {
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       {/* Animated Background */}
-      <div className="fixed inset-0 bg-hero-pattern opacity-30" />
-      <div className="fixed inset-0 bg-gradient-to-b from-primary/5 via-transparent to-secondary/5" />
+      <div className="fixed inset-0 bg-hero-pattern opacity-30 pointer-events-none" />
+      <div className="fixed inset-0 bg-gradient-to-b from-primary/5 via-transparent to-secondary/5 pointer-events-none" />
       
       {/* Floating orbs */}
       <motion.div
-        className="fixed top-20 left-10 w-64 h-64 rounded-full bg-primary/10 blur-3xl"
+        className="fixed top-20 left-10 w-64 h-64 rounded-full bg-primary/10 blur-3xl pointer-events-none"
         animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
         transition={{ duration: 8, repeat: Infinity }}
       />
       <motion.div
-        className="fixed bottom-20 right-10 w-96 h-96 rounded-full bg-secondary/10 blur-3xl"
+        className="fixed bottom-20 right-10 w-96 h-96 rounded-full bg-secondary/10 blur-3xl pointer-events-none"
         animate={{ x: [0, -30, 0], y: [0, -50, 0] }}
         transition={{ duration: 10, repeat: Infinity }}
       />
