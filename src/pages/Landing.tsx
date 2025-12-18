@@ -331,11 +331,15 @@ const Landing = () => {
 
       {/* Username Modal */}
       {showUsernameModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm">
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm"
+          onClick={(e) => e.target === e.currentTarget && setShowUsernameModal(false)}
+        >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="gaming-card p-8 max-w-md w-full mx-4"
+            className="relative z-[101] bg-card rounded-xl border border-border p-8 max-w-md w-full mx-4 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
           >
             <h2 className="font-display text-2xl font-bold mb-4">Create Your Profile</h2>
             <p className="text-muted-foreground mb-6">
@@ -346,7 +350,9 @@ const Landing = () => {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleCreateUser()}
               placeholder="Enter username"
+              autoFocus
               className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary mb-4"
               maxLength={20}
             />
